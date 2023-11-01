@@ -7,7 +7,9 @@ import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
 import BookModal from "./BookModal";
 
+// BookSingleCard component representing a single book in card format
 const BookSingleCard = ({ book }) => {
+  // State to manage the visibility of the modal
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -15,9 +17,9 @@ const BookSingleCard = ({ book }) => {
       key={book._id}
       className="border-2 border-gray-500 rounded-lg px-4 py-2 m-4 relative hover:shadow-xl"
     >
+      {/* Displaying the publish year as a badge */}
       <h2
-        className="absolute top-1 right-2 px-4 py-1 bg-red-300 rounded-lg
-          "
+        className="absolute top-1 right-2 px-4 py-1 bg-red-300 rounded-lg"
       >
         {book.publishYear}
       </h2>
@@ -30,21 +32,27 @@ const BookSingleCard = ({ book }) => {
         <BiUserCircle className="text-red-300 text-2xl" />
         <h2 className="my-1">{book.author}</h2>
       </div>
+      {/* Actions section with icons for show, details, edit, and delete */}
       <div className="flex justify-between items-center gap-x-2 mt-4 p-4">
+        {/* Icon to show book details in a modal */}
         <BiShow
           className="text-3xl text-blue-800 hover:text-black cursor-pointer"
           onClick={() => setShowModal(true)}
         />
+        {/* Link to navigate to the details page */}
         <Link to={`/books/details/${book._id}`}>
           <BsInfoCircle className="text-2xl text-green-800 hover:text-black" />
         </Link>
+        {/* Link to navigate to the edit page */}
         <Link to={`/books/edit/${book._id}`}>
           <AiOutlineEdit className="text-2xl text-yellow-600 hover:text-black" />
         </Link>
+        {/* Link to navigate to the delete page */}
         <Link to={`/books/delete/${book._id}`}>
           <MdOutlineDelete className="text-2xl text-red-600 hover:text-black" />
         </Link>
       </div>
+      {/* Rendering the BookModal if showModal is true */}
       {showModal && (
         <BookModal book={book} onClose={() => setShowModal(false)} />
       )}
