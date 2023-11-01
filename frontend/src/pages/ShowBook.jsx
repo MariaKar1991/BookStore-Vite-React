@@ -4,33 +4,48 @@ import { useParams } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 
+// ShowBook component for displaying details of a single book
 const ShowBook = () => {
+  // State variables for book data, loading spinner, and extracting book id from URL params
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
+  // useEffect hook to fetch book data from the server when the component mounts
   useEffect(() => {
+    // Set loading to true during the API request
     setLoading(true);
+
+    // Make a GET request to retrieve the details of the specified book
     axios
       .get(`http://localhost:5555/books/${id}`)
       .then((response) => {
+        // Set the book state with the retrieved data and set loading to false
         setBook(response.data);
         setLoading(false);
       })
       .catch((error) => {
+        // Log the error and set loading to false if an error occurs
         console.log(error);
         setLoading(false);
       });
   }, []);
 
+  // JSX structure for the ShowBook component
   return (
     <div className="p-4">
+      {/* Display back button */}
       <BackButton />
+
+      {/* Display heading */}
       <h1 className="text-3xl my-4">Show Book</h1>
+
+      {/* Display loading spinner or book details */}
       {loading ? (
         <Spinner />
       ) : (
         <div className="flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4">
+          {/* Display book details */}
           <div className="my-4">
             <span className="text-xl mr-4 text-gray-500">Id</span>
             <span>{book._id}</span>
