@@ -1,5 +1,8 @@
-# BookStore App
-## Vite - React
+# BookStore MERN App
+## Vite - React 
+## Users can view, create, search, update, and delete Books from the BookStore.
+## App includes Table and Card presentation options.
+
 <img width="1438" alt="Screenshot 2023-11-01 at 15 11 40" src="https://github.com/MariaKar1991/BookStore-Vite-React/assets/82884186/20670c7d-9b92-407b-942a-6441559f619c">
 <img width="1440" alt="Screenshot 2023-11-01 at 15 11 55" src="https://github.com/MariaKar1991/BookStore-Vite-React/assets/82884186/94ed8ec2-09e6-4163-9355-f57d96705e40">
 <img width="1440" alt="Screenshot 2023-11-01 at 15 12 08" src="https://github.com/MariaKar1991/BookStore-Vite-React/assets/82884186/9e2fb3a4-ccf7-4cfd-b2dc-d54a04a5fff5">
