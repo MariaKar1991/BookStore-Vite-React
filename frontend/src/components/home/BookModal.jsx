@@ -2,6 +2,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { PiBookOpenTextLight } from "react-icons/pi";
 import { BiUserCircle } from "react-icons/bi";
 
+// BookModal component for displaying book details in a modal
 const BookModal = ({ book, onClose }) => {
   return (
     <div
@@ -17,8 +18,7 @@ const BookModal = ({ book, onClose }) => {
           onClick={onClose}
         />
         <h2
-          className="w-fit px-4 py-1 bg-red-300 rounded-lg
-          "
+          className="w-fit px-4 py-1 bg-red-300 rounded-lg"
         >
           {book.publishYear}
         </h2>
